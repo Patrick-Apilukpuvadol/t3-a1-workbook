@@ -159,14 +159,170 @@ I had some challenges with the technical aspects of the project but I feel that 
 
 ## Q7	Explain control flow, using an example from the JavaScript programming language
 
+in definition Control Flow is the sequence in which statements are carried out in order by a program. Developers are able to control the flow of the source code in specific conditions. For Example, a popular programming language such as Javascript provides a variety of methods to control flow like If-Else Statements, Loops, Ternary Operators and Switch Statements. Below are explanations of the various methods used. 
+
+### Switch Statements
+
+This state gives the developer the option to execute different blocks of code based on specific conditions that are satisfied, if it is not satisfied it will continue down the code block until a condition can be satisfied. The developer is able to handle various possible outcomes gracefully within a single expression. Please see below:
+
+```javascript
+let pokemon = "Pikachu";
+
+switch (pokemon) {
+  case "pikachu":
+    console.log("It's a Pikachu!");
+    // Since variable is Pikachu it will console.log the above message and then break
+    break;
+  case "charmander":
+    console.log("It's a Charmander");
+    // If in a situation the variable was Charmander it will console.log the above and then break
+    break;
+  default:
+    console.log("Its just another pokemon");
+    // If the variable was anything else that didn't meet the specific conditions it will default to the above message
+    break;
+}
+```
+
+### Loops 
+
+This is used to execute specific blocks of code repeatedly until the condition is met. Javascripts provides several variations of Loops for specific situations such as For Loops and Do-While loops. Please below example of For loops 
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+  // In this example
+  // Variable (i) = 0
+  // Condition is if (i) less than 5 then execute console.log but also for each time (i) is used in the expression it will be incremented. Creating a Loop until the condition is not able to be satisfied. 
+}
+```
+
+### If-Else Statements
+
+This statement is used by developers for executing blocks of code based on specific conditions. If the condition is True then a specific code within that block will be executed. If not then the code within the Else block will be executed. Below is an example:
+
+```javascript
+let num = 10;
+
+if (num > 0) {
+  console.log("The number is positive.");
+} else {
+  console.log("The number is negative or zero.");
+}
+// In this example the variable is 10
+// If statement is if the variable is less than 0 then execute the If block or either run Else block.
+```
+
 
 ## Q8	Explain type coercion, using examples from the JavaScript programming language
+
+Type Coercion in Javascript is the process of automatic conversion of one data type into another. "This includes conversion from Number to String, String to Number, Boolean to Number etc. when different types of operators are applied to the values."(What Is Type Coercion in JavaScript, 2023) When a function or operator requests a data type that is different from existing data type, a conversion occurs. For example a popular programming language such as Javascript performs Type Coercion which gives developers flexbility but it sometimes can lead to side effects if the process is not fully understood. Below are examples of the types of Coercion by Javascript
+
+### Explicit Coercion
+
+This type of conversion is intentional when converting a value from one data into another by using functions or methods. Please see below example
+
+```javascript
+let num = 10;
+let str = String(num); // This explicitly converts the number into string data
+
+console.log(str); // Outputs "10" but as a string
+```
+
+### Implicit Coercion
+
+In contrast Implicit coercion occurs when Javascript converts the data from one into another without a direct or explicit conversion. This commonly happens when operators or functions are established for different data types. Please see example below:
+
+```javascript
+let num = "10";
+let str = "5";
+// As you can see there is number data type as 10 and a string data type as 5
+console.log(num+str);
+//  Output of Console.log would be 105
+// In the Console.log with the + operator, what happens is that Javascript will apply implicit conversion which changes the number data type into str and concatenates the data. This can lead to unexpected results. 
+```
 
 
 ## Q9	Explain data types, using examples from the JavaScript programming language
 
+Within Javascript, numerous data types can be assigned to variables such as Null, Boolean, Number, Undefined, String and Object. Please see below Examples of Data types with explanations. 
+
+### Boolean 
+
+This data type represents a logical entity that is limited to only 2 outcomes being True or False. This Data type is commonly utilised by developers for situations where conditional operations are required. For example:
+
+```javascript
+  let isTrue = true;
+  let isFalse = false;
+
+  (isTrue == true) // Returns true
+  (isFalse == true) // Returns false
+```
+
+### Number
+
+This data type is for representing numerics such as integers and floating numbers. For Example
+
+```javascript
+let myNumber = 10;
+let pi = 3.14159;
+
+console.log(myNumber); // Output is 10
+console.log(pi); // Output is 3.14159
+```
+
+### Null
+
+Represents the lack of any value intentionally. It is a keyword in Javascript. For example
+
+```javascript
+let nullVariable = null;
+console.log(nullVariable); // Output is null
+```
+
+### Undefined
+
+This data type is used for an undefined value. Developers utilise it as a normal value and global property in Javascript. For example:
+
+```javascript
+let randomVariable;
+console.log(randomVariable); // Output is undefined
+```
+
+### Object
+
+This datatype is used to represent a collection of key value pairs. Developers use it Objects for its capability to hold a variety of data types making it vital in Javascript. For example:
+
+```javascript
+let randomObject = { brand: "Toyota", type: "Hatch"};
+console.log(randomObject); // Output would be { brand: "Toyota", type: "Hatch"}
+```
+
 
 ## Q10	Explain how arrays can be manipulated in JavaScript, using examples from the JavaScript programming language
+
+Javascript uses arrays to store a number of values within a variable. There is a variety of methods and processes that developers can employ to manipulate the data. Please see examples below of various methods that can be used:
+
+### Accessing Array Elements
+
+Elements can be accessed through their Index numbers ranging from 0 and onwards. See below example:
+
+```javascript
+let pokemon = ['pikachu', 'charmander', 'squirtle'];
+console.log(pokemon[0]); // Output will be Pikachu
+console.log(pokemon[1]); // Output will be Charmander
+console.log(pokemon[2]); // Output will be Squirtle
+```
+
+### Adding Elements to an Array
+
+Developers can add elements into an array through methods such as push() and concat(). See below examples
+
+```javascript
+let anime = ['Dragonball', 'Pokemon', 'Hunterxhunter'];
+anime.push('One Piece'); // Adds 'One Piece" to the end of the array
+  console.log(anime);
+```
 
 
 ## Q11	Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language

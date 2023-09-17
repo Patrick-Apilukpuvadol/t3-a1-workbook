@@ -321,51 +321,209 @@ Developers can add elements into an array through methods such as push() and con
 ```javascript
 let anime = ['Dragonball', 'Pokemon', 'Hunterxhunter'];
 anime.push('One Piece'); // Adds 'One Piece" to the end of the array
-  console.log(anime);
+  console.log(anime); // Output: ['Dragonball', 'Pokemon', 'Hunterxhunter', 'One Piece']
+
+let moreAnime = anime.concat(['Bleach', 'Naruto',]); //This concatenates two arrays together
+console.log(moreAnime) //Output :['Dragonball', 'Pokemon', 'Hunterxhunter', 'One Piece','Bleach', 'Naruto']
+```
+
+### Removing Elements from an Array
+
+We can remove elements within an array through methods such as pop(), shift() and splice(). See below examples
+
+```javascript
+let pokemon = ['pikachu', 'charmander', 'bulbasaur'];
+pokemon.pop();  // Removes the last element from the array
+console.log(pokemon);  // Output: ['pikachu', 'charmander']
+
+pokemon.shift();  // Removes the first element from the array
+console.log(pokemon);  // Output: ['charmander']
+
+pokemon.splice(1, 1);  // Removes one element at index 1
+console.log(pokemon);  // Output: ['charmander']
+```
+
+### Modifying Array Elements
+
+Elements within an Array can be modified through the method of assigning to a specific index. See below example
+
+```javascript
+let pokemon = ['pikachu', 'charmander', 'bulbasaur'];
+pokemon[1] = 'eevee';  // Modifies the value at index 1
+console.log(pokemon);  // Output: ['pikachu', 'eevee', 'bulbasaur']
 ```
 
 
-## Q11	Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language
+## Q11	Explain how objects can be manipulated in JavaScript, using examples from the JavaScript programming language.
+
+Javascript offers alot of flexibility to developers especially in relation to Ojects. Objects can be easily manipulated using various statements and techniques. "We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It’s easy to find a file by its name or add/remove a file."(Kantor, n.d.).
+
+### Accessing an Object
+
+Javascript allows access to an Objects properties through Dot Notation or Bracket notation depending on the situation. For example developers would utilise Dot notation when the property name is known while for situations that involve accessing the property name is stored within a variable. See below code snippet as an example:
+
+```javascript 
+const pokemon = {
+  name: "Pikachu",
+  type: "Electric"
+};
+
+console.log(pokemon.name); // Output: Pikachu - using dot notation
+console.log(pokemon["type"]); // Output: Electric - using bracket notation to access property name "type" which is within variable "pokemon"
+```
+
+### Addition and Update of Object properties
+
+Within Javascript you can add and update properties of objects by assigning them values. See below examples 
+
+```javascript
+const pokemon = {
+  name: "Pikachu",
+  type: "Electric"
+};
+
+person.move = "Thundershock"; // Adding a new property to variable
+person.type = "Normal"; // Updating an existing property type within the variable
+
+console.log(pokemon); // Output: { name: "Pikachu", type: "Normal", move: "Thundershock" }
+```
+
+### Deleting Object Properties
+
+Javascript allows developers the option to delete properties through statement "delete". See below example
+
+```javascript
+const pokemon = {
+  name: "Pikachu",
+  type: "Electric"
+};
+
+delete person.type;
+
+console.log(pokemon); // Output: { name: "Pikachu" } - property "type" has been removed from log
+```
 
 
 ## Q12	Explain how JSON can be manipulated in JavaScript, using examples from the JavaScript programming language
+
+JSON or also known as JavaScript Object Notation is a lightweight data interchange format that is text based
+and is commonly utilised for data transmission and manipulation within web applications. JSON format was sourced from Javascript Object Syntax that is rendered in curly braces. "JSON was developed to be used any programming language" (Tagliaferri, 2021) Below are explanations of some of the methods that JSON data can be manipulated with Javascript:
+
+### Stringify JSON
+
+This method involves the conversion of the Javascript object into a JSON string. To do this we use the JSON.stringify() statement. See below example
+
+```javascript 
+const pokemon = {
+  name: "Pikachu",
+  type: "Electric"
+};
+const jsonString = JSON.stringify(pokemon);
+console.log(jsonString); // Output: {"name":"Pikachu","type":"Electric"}
+```
+
+### Parsing JSON
+
+This method converts a JSON string into a JavaScript Object. To do this you would employ the JSON.parse() Statement. See below example:
+
+```javascript
+const jsonString = '{"name": "Pikachu", "type": "Electric"}';
+const jsonObject = JSON.parse(jsonString);
+console.log(jsonObject.name); // Output: Pikachu
+console.log(jsonObject.type); // Output: Electric
+```
+
+### Manipulating JSON data 
+
+Once the JSON string has been "parsed" and converted into a Javascript Object, it can also have its properties altered just like any other Object in Javascript. Please see below Examples 
+
+```javascript
+const jsonObject = {
+  name: "Pikachu",
+  type: "Electric"
+};
+
+// Updates the property value
+jsonObject.type = "Normal";
+
+// Adds a new property
+jsonObject.move = "Thunderbolt";
+
+// Deletes the existing property value
+delete jsonObject.type;
+
+console.log(jsonObject); // Output: { name: "Pikachu", move: "Thunderbolt" }
+```
+
 
 
 ## Q13	For the code snippet provided below, write comments for each line of code to explain its functionality. In your comments you must demonstrates your ability to recognise and identify functions, ranges and classes
 
 ```javascript
 class Car {
-  constructor(brand) {
-    this.carname = brand;
+  constructor(brand) { // Defines Constructor function within the "Car" class with the parameter "brand" 
+    this.carname = brand; // Assigns the value of 'brand' to the 'carname' property of the Car object
   }
-  present() {
-    return 'I have a ' + this.carname;
-  }
-}
-
-class Model extends Car {
-  constructor(brand, mod) {
-    super(brand);
-    this.model = mod;
-  }
-  show() {
-    return this.present() + ', it was made in ' + this.model;
+  present() { // Defines the "present" method for class "Car"
+    return 'I have a ' + this.carname; // Returns data in a string in addition with value of "carname"
   }
 }
 
-let makes = ["Ford", "Holden", "Toyota"]
-let models = Array.from(new Array(40), (x,i) => i + 1980)
-
-function randomIntFromInterval(min,max) { // min and max included
-    return Math.floor(Math.random()*(max-min+1)+min);
+class Model extends Car { // Defines class "Model" which is an extension to class "Car"
+  constructor(brand, mod) { // Defines Constructor function within the "Model" class with the parameters "brand" and 'mod'
+    super(brand); // "super" function is called within the class "Model" and "Car" and then passes an argument with the parameter "brand"
+    this.model = mod; //This assigns the value of "mod" to the "model" property within the Class "model"
+  }
+  show() { // Defining the "show" method for the class "Model"
+    return this.present() + ', it was made in ' + this.model; // Returns string data that is Concatenated with method "present" and value of property "model"
+  }
 }
 
-for (model of models) {
+let makes = ["Ford", "Holden", "Toyota"]; // Declaration of an array with 3 elements
+let models = Array.from(new Array(40), (x,i) => i + 1980); // Generates an Array as "models" with parameters "x" and "i" and numbers ranging from 1980 to 2020 
 
-  make = makes[randomIntFromInterval(0,makes.length-1)]
-  model = models[randomIntFromInterval(0,makes.length-1)]
+function randomIntFromInterval(min,max) { // Defines the function "randomIntFromInterval" with parameters "min" and "max"
+    return Math.floor(Math.random()*(max-min+1)+min); // Statement returns a randomised integer that is between parameters "min" and "max"
+}
 
-  mycar = new Model(make, model);
-  console.log(mycar.show())
+for (model of models) { // For loop that iterates each element "model" over in array "models"
+
+  make = makes[randomIntFromInterval(0,makes.length-1)]; // Assigns a random "make" from the array "makes" to the "make" variable
+  model = models[randomIntFromInterval(0,makes.length-1)]; // Assigns a random "model" from the array "models" to the "model" variable
+
+  mycar = new Model(make, model); // New Instance of Class "Model" is created with parameters "make" and "model" as arguments which is assigned to "mycar" object
+  console.log(mycar.show()); // Statement that calls "show" method from Object "mycar" and then logs result to console terminal
 }
 ```
+
+## References
+
+### Q1
+
+Driessen, V. D. (n.d.). A successful Git branching model. https://nvie.com/. Retrieved September 13, 2023, from https://nvie.com/posts/a-successful-git-branching-model/
+
+### Q2
+
+Quality Assurance, Quality Control and Testing — the Basics of Software Quality Management. (2020, January 6). AltexSoft. https://www.altexsoft.com/whitepapers/quality-assurance-quality-control-and-testing-the-basics-of-software-quality-management/
+
+### Q3
+
+MERN Stack - GeeksforGeeks. (2019, October 11). GeeksforGeeks. https://www.geeksforgeeks.org/mern-stack/
+
+Jasraj, J. (2021, October 7). MERN Stack. Geeksforgeeks. Retrieved September 13, 2023, from https://www.geeksforgeeks.org/mern-stack/
+
+### Q4
+
+Friedman , V., F. (2021, October). 10 Principles Of Good Web Design. Smashing Magazine. Retrieved September 14, 2023, from https://www.smashingmagazine.com/2008/01/10-principles-of-effective-web-design/
+
+### Q7
+
+What is Type Coercion in JavaScript. (2023, February 7). GeeksforGeeks. https://www.geeksforgeeks.org/what-is-type-coercion-in-javascript/
+
+### Q11
+
+Kantor, I. (n.d.). Objects. https://javascript.info/object
+
+### Q12
+
+Tagliaferri, L. (2021, August 25). How To Work with JSON in JavaScript. DigitalOcean. https://www.digitalocean.com/community/tutorials/how-to-work-with-json-in-javascript
